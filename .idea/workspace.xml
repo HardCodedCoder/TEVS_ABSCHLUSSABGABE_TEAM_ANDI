@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c55d9990-7fe6-4a6d-8d85-8f9492aa791f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_application/src/main/java/org/example/ClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/ClientApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_application/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +178,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718037619896</updated>
       <workItem from="1718037621290" duration="14990000" />
-      <workItem from="1718110829847" duration="8205000" />
+      <workItem from="1718110829847" duration="8570000" />
     </task>
     <servers />
   </component>
