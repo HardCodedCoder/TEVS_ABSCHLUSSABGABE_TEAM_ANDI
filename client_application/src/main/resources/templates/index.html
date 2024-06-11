@@ -2,79 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Status Application</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #F0F1EF;
-            margin: 0;
-            padding: 0;
-        }
-        h1 {
-            color: #363C30;
-            text-align: center;
-        }
-        h2 {
-            color: #363C30;
-            text-align: center;
-        }
-        form {
-            margin: 20px auto;
-            text-align: center;
-        }
-        input[type="text"], button {
-            padding: 8px;
-            margin: 5px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #8DA279;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px auto;
-            max-width: 600px;
-        }
-        li {
-            margin-bottom: 10px;
-            background-color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .username {
-            font-size: 18px;
-            color: #363C30;
-            padding-bottom: 5px
-        }
-        .text {
-            font-size: 18px;
-            color: #363C30;
-        }
-        .date {
-            font-size: 12px;
-            color: #363C30;
-        }
-    </style>
 </head>
 <body>
 <h1>Status Application</h1>
+<!-- Form to set status -->
 <form action="/setStatus" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="statusText" placeholder="Status">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="statustext" placeholder="Status" required>
     <button type="submit">Set Status</button>
 </form>
+<p th:text="${message}"></p>
 
-<h2>Current Statuses</h2>
+<!-- Form to get status of a specific user -->
+<form action="/getStatus" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <button type="submit">Get Status</button>
+</form>
+<p th:text="${errorMessage}"></p>
+<div th:if="${userStatus != null}">
+    <h2>User Status</h2>
+    <p>Username: <span th:text="${userStatus.username}"></span></p>
+    <p>Status: <span th:text="${userStatus.statustext}"></span></p>
+    <p>Time: <span th:text="${userStatus.timestamp}"></span></p>
+</div>
+
+<!-- Display all statuses -->
+<h2>All Statuses</h2>
 <ul>
     <li th:each="status : ${statuses}">
-        <span class="username" th:text="${status.username}">Username</span> -
-        <span class="text" th:text="${status.statusText}">Status Text</span> <br>
-        <span class="date" th:text="${status.formattedTimestamp}">Timestamp</span>
+        <span th:text="${status.username}">Username</span> : <span th:text="${status.statustext}">Status Text</span> at <span th:text="${status.timestamp}">Time</span>
     </li>
 </ul>
 </body>

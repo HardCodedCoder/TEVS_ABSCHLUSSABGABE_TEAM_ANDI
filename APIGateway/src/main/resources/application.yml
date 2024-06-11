@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: server-node
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/**
+
+      default-filters:
+        - AddResponseHeader=Access-Control-Allow-Origin,*
+    config:
+      enabled: false
+
+server:
+  port: 8080
+

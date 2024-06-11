@@ -1,15 +1,14 @@
 package org.example;
 
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
-
+@EnableEurekaServer
 @SpringBootApplication
-@RestController
-public class ClientApplication {
+public class ServiceRegistry {
     public static void main(String[] args) {
-        SpringApplication.run(ClientApplication.class, args);
+        SpringApplication.run(ServiceRegistry.class, args);
     }
-
 }
