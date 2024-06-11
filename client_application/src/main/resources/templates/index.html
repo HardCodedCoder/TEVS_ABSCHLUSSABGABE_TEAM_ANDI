@@ -5,10 +5,33 @@
 </head>
 <body>
 <h1>Status Application</h1>
+<!-- Form to set status -->
 <form action="/setStatus" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="text" name="statustext" placeholder="Status">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="text" name="statustext" placeholder="Status" required>
     <button type="submit">Set Status</button>
 </form>
+<p th:text="${message}"></p>
+
+<!-- Form to get status of a specific user -->
+<form action="/getStatus" method="post">
+    <input type="text" name="username" placeholder="Username" required>
+    <button type="submit">Get Status</button>
+</form>
+<p th:text="${errorMessage}"></p>
+<div th:if="${userStatus != null}">
+    <h2>User Status</h2>
+    <p>Username: <span th:text="${userStatus.username}"></span></p>
+    <p>Status: <span th:text="${userStatus.statustext}"></span></p>
+    <p>Time: <span th:text="${userStatus.timestamp}"></span></p>
+</div>
+
+<!-- Display all statuses -->
+<h2>All Statuses</h2>
+<ul>
+    <li th:each="status : ${statuses}">
+        <span th:text="${status.username}">Username</span> : <span th:text="${status.statustext}">Status Text</span> at <span th:text="${status.timestamp}">Time</span>
+    </li>
+</ul>
 </body>
 </html>
