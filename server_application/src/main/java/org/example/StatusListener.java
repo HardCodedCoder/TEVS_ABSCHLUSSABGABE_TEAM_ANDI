@@ -22,9 +22,13 @@ public class StatusListener {
     @RabbitListener(queues = "#{statusQueue.name}")
     public void receiveMessage(StatusController.Status newStatus) {
         synchronized (statuses) {
-            statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername())
-                    && status.getTimestamp().isBefore(newStatus.getTimestamp()));
-            statuses.add(newStatus);
+            if (newStatus.getStatustext().equalsIgnoreCase("off")) {
+                statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername()));
+            } else {
+                statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername())
+                        && status.getTimestamp().isBefore(newStatus.getTimestamp()));
+                statuses.add(newStatus);
+            }
 
             System.out.println("Status received in Listener: " + newStatus.getUsername());
         }

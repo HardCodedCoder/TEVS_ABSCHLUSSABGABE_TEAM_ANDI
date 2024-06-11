@@ -48,6 +48,13 @@ public class StatusController {
                 .orElse(null);
     }
 
+    @DeleteMapping("/removeStatus")
+    public String removeStatus(@RequestParam String username) {
+        statuses.removeIf(status -> status.getUsername().equals(username));
+        rabbitTemplate.convertAndSend("statusExchange", "", new Status(username, "off"));
+        return "Status removed successfully";
+    }
+
     public static class StatusRequest {
         private String username;
         private String statustext;

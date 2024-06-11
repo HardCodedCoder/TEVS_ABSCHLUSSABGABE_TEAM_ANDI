@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c55d9990-7fe6-4a6d-8d85-8f9492aa791f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +56,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.ClientApplication_2">
+  <component name="RunManager" selected="Spring Boot.ServerApplication_2">
     <configuration name="RabbitMQConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.RabbitMQConsumer" />
       <module name="RabbitMQConsumer" />
@@ -156,9 +158,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ServerApplication" />
-        <item itemvalue="Application.RabbitMQConsumer" />
         <item itemvalue="Spring Boot.APIGateway" />
         <item itemvalue="Spring Boot.ServiceRegistry" />
+        <item itemvalue="Application.RabbitMQConsumer" />
       </list>
     </recent_temporary>
   </component>
@@ -171,7 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1718037619896</updated>
       <workItem from="1718037621290" duration="14990000" />
-      <workItem from="1718110829847" duration="7155000" />
+      <workItem from="1718110829847" duration="8205000" />
     </task>
     <servers />
   </component>

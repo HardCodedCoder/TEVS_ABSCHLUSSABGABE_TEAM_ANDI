@@ -34,16 +34,27 @@ public class StatusController {
 
     @PostMapping("/setStatus")
     public String setStatus(@RequestParam String username, @RequestParam String statustext, Model model) {
-        // Send status update to the API Gateway
-        StatusRequest statusRequest = new StatusRequest(username, statustext);
-        String response = webClientBuilder.build()
-                .post()
-                .uri("http://localhost:8080/api/setStatus")
-                .bodyValue(statusRequest)
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
-        model.addAttribute("message", response);
+        if (statustext.equalsIgnoreCase("off")) {
+            // Remove statuses of the user if statustext is "off"
+            String response = webClientBuilder.build()
+                    .delete()
+                    .uri("http://localhost:8080/api/removeStatus?username=" + username)
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+            model.addAttribute("message", response);
+        } else {
+            // Send status update to the API Gateway
+            StatusRequest statusRequest = new StatusRequest(username, statustext);
+            String response = webClientBuilder.build()
+                    .post()
+                    .uri("http://localhost:8080/api/setStatus")
+                    .bodyValue(statusRequest)
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+            model.addAttribute("message", response);
+        }
 
         // Refresh the statuses after posting a new one
         List<StatusResponse> statuses = webClientBuilder.build()
@@ -53,6 +64,7 @@ public class StatusController {
                 .bodyToFlux(StatusResponse.class)
                 .collectList()
                 .block();
+
         model.addAttribute("statuses", statuses);
         return "index";
     }
