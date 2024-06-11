@@ -1,6 +1,7 @@
 # Default ignored files
 /shelf/
-/workspace.xml
+# commit workspace because of the intellij startup configuration
+#/workspace.xml
 # Editor-based HTTP Client requests
 /httpRequests/
 # Datasource local storage ignored files
