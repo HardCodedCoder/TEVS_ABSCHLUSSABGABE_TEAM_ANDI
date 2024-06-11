@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -83,6 +84,8 @@ public class StatusController {
         private String statustext;
         private LocalDateTime timestamp;
 
+        private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
         public Status() {
             // only used for deserialization
         }
@@ -113,6 +116,10 @@ public class StatusController {
             return timestamp;
         }
 
+        public String getFormattedTimestamp() {
+            return timestamp.format(formatter);
+        }
+
         public void setTimestamp(LocalDateTime timestamp) {
             this.timestamp = timestamp;
         }
@@ -123,11 +130,18 @@ public class StatusController {
         private String username;
         private String statustext;
         private LocalDateTime timestamp;
+        private String formattedTimestamp;
 
         public StatusResponse(Status status) {
             this.username = status.getUsername();
             this.statustext = status.getStatustext();
             this.timestamp = status.getTimestamp();
+            this.formattedTimestamp = formatTimestamp(this.timestamp);
+        }
+
+        private String formatTimestamp(LocalDateTime timestamp) {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            return timestamp.format(formatter);
         }
     }
 }

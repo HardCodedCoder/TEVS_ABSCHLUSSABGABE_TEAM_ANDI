@@ -113,5 +113,6 @@ public class StatusController {
         private String username;
         private String statustext;
         private String timestamp;
+        private String formattedTimestamp;
     }
 }
