@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c55d9990-7fe6-4a6d-8d85-8f9492aa791f" name="Changes" comment="">
+    <list default="true" id="8ee526c4-1f33-4f56-adb4-0234127b2b1e" name="Changes" comment="chore: first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server_application/src/main/java/org/example/StatusController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +29,7 @@
   &quot;associatedIndex&quot;: 3
 }</component>
   <component name="ProjectId" id="2hhDsDnOpCWVBZ6mUgvGhMcX7qZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -57,7 +55,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Spring Boot.ClientApplication">
+  <component name="RunManager" selected="Spring Boot.ServerApplication">
     <configuration name="RabbitMQConsumer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.RabbitMQConsumer" />
       <module name="RabbitMQConsumer" />
@@ -124,12 +122,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerApplication_2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <configuration name="ServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="ALTERNATIVE_JRE_PATH" value="corretto-21" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="server_application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.ServerApplication" />
-      <option name="VM_PARAMETERS" value="-Dserver.port=8083 -Dserver.node-id=node2" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8081 -Dserver.node-id=node1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -151,17 +149,16 @@
       <item itemvalue="Application.RabbitMQConsumer" />
       <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.ClientApplication_2" />
-      <item itemvalue="Spring Boot.ServerApplication_2" />
-      <item itemvalue="Spring Boot.APIGateway" />
       <item itemvalue="Spring Boot.ServerApplication" />
+      <item itemvalue="Spring Boot.APIGateway" />
       <item itemvalue="Spring Boot.ServiceRegistry" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ServerApplication" />
         <item itemvalue="Spring Boot.APIGateway" />
-        <item itemvalue="Spring Boot.ServiceRegistry" />
         <item itemvalue="Application.RabbitMQConsumer" />
+        <item itemvalue="Spring Boot.ServiceRegistry" />
+        <item itemvalue="Spring Boot.ServerApplication" />
       </list>
     </recent_temporary>
   </component>
