@@ -19,8 +19,6 @@ import lombok.Setter;
 @RequestMapping("/api")
 public class StatusController {
 
-    private final List<Status> statuses = new CopyOnWriteArrayList<>();
-
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -30,14 +28,13 @@ public class StatusController {
     @PostMapping("/setStatus")
     public String setStatus(@RequestBody StatusRequest statusRequest) {
         Status status = new Status(statusRequest.getUsername(), statusRequest.getStatustext());
-        statuses.add(status);
         rabbitTemplate.convertAndSend("statusExchange", "", status); // Use fanout exchange
         return "Status set successfully";
     }
 
     @GetMapping("/statuses")
     public List<Status> getAllStatuses() {
-        return new ArrayList<>(statuses);
+        return statusListener.getStatuses();
     }
 
     @GetMapping("/status/{username}")
@@ -51,7 +48,6 @@ public class StatusController {
 
     @DeleteMapping("/removeStatus")
     public String removeStatus(@RequestParam String username) {
-        statuses.removeIf(status -> status.getUsername().equals(username));
         rabbitTemplate.convertAndSend("statusExchange", "", new Status(username, "off"));
         return "Status removed successfully";
     }
