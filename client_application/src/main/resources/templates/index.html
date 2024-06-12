@@ -89,7 +89,7 @@
 </div>
 
 <!-- Display all statuses -->
-<h2>All Statuses</h2>
+<h2>Status History</h2>
 <ul>
     <li th:each="status : ${statuses}">
         <span th:text="${status.username}">Username</span> : <span th:text="${status.statustext}">Status Text</span> at <span th:text="${status.formattedTimestamp}">Time</span>
