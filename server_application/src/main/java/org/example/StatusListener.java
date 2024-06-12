@@ -26,7 +26,7 @@ public class StatusListener {
                 statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername()));
             } else {
                 statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername())
-                        && status.getTimestamp().isBefore(newStatus.getTimestamp()));
+                        && (status.getTimestamp().isBefore(newStatus.getTimestamp()) || status.getTimestamp().isEqual(newStatus.getTimestamp())));
                 statuses.add(newStatus);
             }
 
@@ -38,7 +38,7 @@ public class StatusListener {
         synchronized (statuses) {
             for (StatusController.Status newStatus : newStatuses) {
                 statuses.removeIf(status -> status.getUsername().equals(newStatus.getUsername())
-                        && status.getTimestamp().isBefore(newStatus.getTimestamp()));
+                        && (status.getTimestamp().isBefore(newStatus.getTimestamp()) || status.getTimestamp().isEqual(newStatus.getTimestamp())));
                 statuses.add(newStatus);
             }
         }
