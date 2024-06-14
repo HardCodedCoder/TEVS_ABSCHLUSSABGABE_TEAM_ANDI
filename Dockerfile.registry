@@ -1,0 +1,13 @@
+FROM maven:3.9.7-amazoncorretto-21-debian As build
+WORKDIR /app
+
+COPY . .
+
+RUN mvn clean package -DskipTests
+
+FROM maven:3.9.7-amazoncorretto-21-debian
+
+COPY --from=build /app/service_registry/target/service_registry-1.0-SNAPSHOT.jar service-registry.jar
+EXPOSE 8761
+
+ENTRYPOINT ["java", "-jar", "/service-registry.jar"]

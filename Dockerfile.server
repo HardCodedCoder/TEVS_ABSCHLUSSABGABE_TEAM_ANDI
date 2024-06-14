@@ -1,0 +1,13 @@
+FROM maven:3.9.7-amazoncorretto-21-debian As build
+WORKDIR /app
+
+COPY . .
+
+RUN mvn clean package -DskipTests
+
+FROM maven:3.9.7-amazoncorretto-21-debian
+
+COPY --from=build /app/server_application/target/server_application-1.0-SNAPSHOT.jar server-application.jar
+EXPOSE ${SERVER_PORT}
+
+ENTRYPOINT ["java", "-jar", "/server-application.jar"]

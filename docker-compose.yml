@@ -1,7 +1,53 @@
 version: '3'
 services:
-  rabbitmq:
-    image: rabbitmq
-    restart: always
+  service-registry:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.registry
     ports:
-     - "5672:5672"
+      - "8761:8761"
+
+  api-gateway:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.apigateway
+    ports:
+      - "8080:8080"
+    depends_on:
+      - service-registry
+
+  client-application:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.client
+    ports:
+      - "8082:8082"
+    depends_on:
+      - api-gateway
+
+  server-application-1:
+    build:
+      context: .
+      dockerfile: ./Dockerfile.server
+    environment:
+      - SERVER_PORT=8081
+    ports:
+      - "8081:8081"
+    depends_on:
+      - service-registry
+      - rabbitmq
+
+  server-application-2:
+    image: server-application-1:latest
+    environment:
+      - SERVER_PORT=8083
+    ports:
+      - "8083:8083"
+    depends_on:
+      - service-registry
+      - rabbitmq
+
+  rabbitmq:
+    image: "rabbitmq"
+    ports:
+      - "5672:5672"
