@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 services:
   service-registry:
     build:
@@ -38,7 +38,9 @@ services:
       - rabbitmq
 
   server-application-2:
-    image: server-application-1:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile.server
     environment:
       - SERVER_PORT=8083
     ports:
@@ -48,6 +50,7 @@ services:
       - rabbitmq
 
   rabbitmq:
-    image: "rabbitmq"
+    image: "rabbitmq:management"
     ports:
       - "5672:5672"
+      - "15672:15672"
