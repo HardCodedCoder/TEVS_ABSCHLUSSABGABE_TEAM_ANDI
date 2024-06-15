@@ -6,7 +6,15 @@
 
 # How to run
   - docker compose up --build
-
+  
+  - open "http://localhost:8082" in your browser (Client Application)
+  - Set or Get status of users
+  
+  - Server 1 is running on "http://localhost:8081"
+  - Server 2 is running on "http://localhost:8083"
+  - Service Registry (Eureka) is running on "http://localhost:8761"
+  - API Gateway is running on "http://localhost:8080"
+  
 # Set Status:
 
   - If the user doesn't exist, a new user will be added with the given status
