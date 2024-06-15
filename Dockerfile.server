@@ -1,7 +1,11 @@
 FROM maven:3.9.7-amazoncorretto-21-debian As build
 WORKDIR /app
 
-COPY . .
+COPY ./APIGateway ./APIGateway
+COPY ./client_application ./client_application
+COPY ./server_application ./server_application
+COPY ./service_registry ./service_registry
+COPY ./pom.xml .
 
 RUN mvn clean package -DskipTests
 
@@ -10,4 +14,4 @@ FROM maven:3.9.7-amazoncorretto-21-debian
 COPY --from=build /app/server_application/target/server_application-1.0-SNAPSHOT.jar server-application.jar
 EXPOSE ${SERVER_PORT}
 
-ENTRYPOINT ["java", "-jar", "/server-application.jar"]
+ENTRYPOINT ["java", "-Dserver.node-id=${NODE_ID}", "-jar", "/server-application.jar"]

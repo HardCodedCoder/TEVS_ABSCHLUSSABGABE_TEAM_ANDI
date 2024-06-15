@@ -14,7 +14,6 @@
     <module>client_application</module>
       <module>APIGateway</module>
       <module>server_application</module>
-      <module>RabbitMQConsumer</module>
       <module>service_registry</module>
   </modules>
 

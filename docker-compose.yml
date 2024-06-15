@@ -16,7 +16,7 @@ services:
     depends_on:
       - service-registry
 
-  client-application:
+  client-application_1:
     build:
       context: .
       dockerfile: ./Dockerfile.client
@@ -31,6 +31,7 @@ services:
       dockerfile: ./Dockerfile.server
     environment:
       - SERVER_PORT=8081
+      - NODE_ID=node1
     ports:
       - "8081:8081"
     depends_on:
@@ -38,9 +39,12 @@ services:
       - rabbitmq
 
   server-application-2:
-    image: server-application-1:latest
+    build:
+      context: .
+      dockerfile: ./Dockerfile.server
     environment:
       - SERVER_PORT=8083
+      - NODE_ID=node2
     ports:
       - "8083:8083"
     depends_on:

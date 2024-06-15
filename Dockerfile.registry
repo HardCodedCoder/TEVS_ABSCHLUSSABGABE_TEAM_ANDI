@@ -1,13 +1,16 @@
 FROM maven:3.9.7-amazoncorretto-21-debian As build
 WORKDIR /app
 
-COPY . .
+COPY ./APIGateway ./APIGateway
+COPY ./client_application ./client_application
+COPY ./server_application ./server_application
+COPY ./service_registry ./service_registry
+COPY ./pom.xml .
 
 RUN mvn clean package -DskipTests
 
 FROM maven:3.9.7-amazoncorretto-21-debian
 
 COPY --from=build /app/service_registry/target/service_registry-1.0-SNAPSHOT.jar service-registry.jar
-EXPOSE 8761
 
 ENTRYPOINT ["java", "-jar", "/service-registry.jar"]
