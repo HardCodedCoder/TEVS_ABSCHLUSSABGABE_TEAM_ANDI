@@ -6,7 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8ee526c4-1f33-4f56-adb4-0234127b2b1e" name="Changes" comment="feat: workspace changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APIGateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/APIGateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" beforeDir="false" afterPath="$PROJECT_DIR$/client_application/src/main/java/org/example/StatusController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server_application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service_registry/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service_registry/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +54,7 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -134,6 +139,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServerApplication_2" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="server_application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.ServerApplication" />
+      <option name="VM_PARAMETERS" value="-Dserver.port=8083 -Dserver.node-id=node2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ServiceRegistry" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="service_registry" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.ServiceRegistry" />
@@ -151,29 +170,32 @@
       <item itemvalue="Application.RabbitMQConsumer" />
       <item itemvalue="Spring Boot.ClientApplication" />
       <item itemvalue="Spring Boot.ClientApplication_2" />
+      <item itemvalue="Spring Boot.ServerApplication_2" />
       <item itemvalue="Spring Boot.ServerApplication" />
       <item itemvalue="Spring Boot.APIGateway" />
       <item itemvalue="Spring Boot.ServiceRegistry" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.APIGateway" />
-        <item itemvalue="Application.RabbitMQConsumer" />
-        <item itemvalue="Spring Boot.ServiceRegistry" />
         <item itemvalue="Spring Boot.ServerApplication" />
+        <item itemvalue="Spring Boot.APIGateway" />
+        <item itemvalue="Spring Boot.ServiceRegistry" />
+        <item itemvalue="Application.RabbitMQConsumer" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c55d9990-7fe6-4a6d-8d85-8f9492aa791f" name="Changes" comment="" />
+      <changelist id="8ee526c4-1f33-4f56-adb4-0234127b2b1e" name="Changes" comment="feat: workspace changes" />
       <created>1718037619896</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1718037619896</updated>
       <workItem from="1718037621290" duration="14990000" />
       <workItem from="1718110829847" duration="10727000" />
+      <workItem from="1718358909799" duration="12841000" />
+      <workItem from="1718477393897" duration="1620000" />
     </task>
     <task id="LOCAL-00001" summary="feat: workspace changes">
       <created>1718213604590</created>

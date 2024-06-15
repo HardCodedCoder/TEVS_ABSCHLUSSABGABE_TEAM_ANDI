@@ -23,7 +23,7 @@ public class StatusController {
         // Get all statuses from the API Gateway
         List<StatusResponse> statuses = webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/api/statuses")
+                .uri("http://api-gateway:8080/api/statuses")
                 .retrieve()
                 .bodyToFlux(StatusResponse.class)
                 .collectList()
@@ -38,7 +38,7 @@ public class StatusController {
             // Remove statuses of the user if statustext is "off"
             String response = webClientBuilder.build()
                     .delete()
-                    .uri("http://localhost:8080/api/removeStatus?username=" + username)
+                    .uri("http://api-gateway:8080/api/removeStatus?username=" + username)
                     .retrieve()
                     .bodyToMono(String.class)
                     .block();
@@ -48,7 +48,7 @@ public class StatusController {
             StatusRequest statusRequest = new StatusRequest(username, statustext);
             String response = webClientBuilder.build()
                     .post()
-                    .uri("http://localhost:8080/api/setStatus")
+                    .uri("http://api-gateway:8080/api/setStatus")
                     .bodyValue(statusRequest)
                     .retrieve()
                     .bodyToMono(String.class)
@@ -59,7 +59,7 @@ public class StatusController {
         // Refresh the statuses after posting a new one
         List<StatusResponse> statuses = webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/api/statuses")
+                .uri("http://api-gateway:8080/api/statuses")
                 .retrieve()
                 .bodyToFlux(StatusResponse.class)
                 .collectList()
@@ -74,7 +74,7 @@ public class StatusController {
         // Get status of a specific user from the API Gateway
         StatusResponse status = webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/api/status/" + username)
+                .uri("http://api-gateway:8080/api/status/" + username)
                 .retrieve()
                 .bodyToMono(StatusResponse.class)
                 .block();
@@ -86,7 +86,7 @@ public class StatusController {
         // Refresh the statuses
         List<StatusResponse> statuses = webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8080/api/statuses")
+                .uri("http://api-gateway:8080/api/statuses")
                 .retrieve()
                 .bodyToFlux(StatusResponse.class)
                 .collectList()
